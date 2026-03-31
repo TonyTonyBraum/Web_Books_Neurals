@@ -137,4 +137,124 @@ body {
 
 .oculto {
     display: none;
+}/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+
+    /* HERO */
+    .overlay {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .overlay h2 {
+        font-size: 1.6rem;
+    }
+
+    .overlay p {
+        font-size: 0.9rem;
+    }
+
+    /* SECCIONES */
+    .hotlist {
+        padding: 40px 20px;
+    }
+
+    /* CARDS */
+    .catalogo {
+        gap: 15px;
+    }
+
+    .card {
+        width: 140px;
+        padding: 10px;
+    }
+
+    .card h3 {
+        font-size: 0.9rem;
+    }
+
+    .card p {
+        font-size: 0.75rem;
+    }
+
+    /* VISOR */
+    .visor iframe {
+        height: 85%;
+    }
+}/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+    .navbar {
+        padding: 15px 25px;
+    }
+
+    .overlay h2 {
+        font-size: 2rem;
+    }
+
+    .card {
+        width: 180px;
+    }
+
+}/* ================= TV / ULTRAWIDE ================= */
+@media (min-width: 1600px) {
+
+    body {
+        font-size: 20px;
+    }
+
+    .navbar {
+        padding: 25px 80px;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+
+    .overlay h2 {
+        font-size: 3.5rem;
+    }
+
+    .overlay p {
+        font-size: 1.4rem;
+    }
+
+    .hotlist {
+        padding: 100px 120px;
+    }
+
+    .catalogo {
+        gap: 40px;
+    }
+
+    .card {
+        width: 260px;
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 1.3rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
 }
