@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Books Neural</title>
+    <link rel="stylesheet" href="index/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Web Books Neural</h1>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="#tendencias">Tendencias</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="overlay">
+            <h2>Explora el conocimiento del futuro</h2>
+            <p>Descubre los libros más leídos en tecnología, ciencia e innovación</p>
+        </div>
+    </section>
+
+    <!-- HOTLIST -->
+    <section id="catalogo" class="hotlist">
+        <h2>🔥 Libros en tendencia</h2>
+        <div class="catalogo"></div>
+    </section>
+
+    <!-- VISOR DE LIBROS -->
+    <div id="visor" class="visor oculto">
+        <button onclick="cerrarVisor()">Cerrar ✖</button>
+        <iframe id="frameLibro"></iframe>
+    </div>
+
+    <script src="index/js/index.js"></script>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contacto">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Web Books Neural</h3>
+                <p>Explora, aprende y conecta con el conocimiento del futuro</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Email: contacto@neuralbooks.com</p>
+                <p>Tel: +54 123 456 7890</p>
+                <p>Dirección: Córdoba, Argentina</p>
+            </div>
+            <div class="footer-social">
+                <h4>Redes</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/tu_usuario" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/tu_usuario" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/tu_numero" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy">
+            &copy; 2026 Web Books Neural. Todos los derechos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
