@@ -4,22 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Web Books Neural</title>
+    <link rel="stylesheet" href="index/css/navbar.css">
     <link rel="stylesheet" href="index/css/catalogo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <!-- NAVBAR -->
-    <header>
-        <nav class="navbar">
-            <h1 class="logo">Web Books Neural</h1>
-            <ul class="nav-links">
-                <li><a href="index.html#inicio">Inicio</a></li>
-                <li><a href="catalogo.html">Catálogo</a></li>
-                <li><a href="index.html#tendencias">Tendencias</a></li>
-                <li><a href="index.html#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <section class="catalogo-section">
         <h2>🔥 Catálogo de Libros</h2>
@@ -27,14 +16,22 @@
         <!-- Buscador -->
         <input type="text" id="buscador" placeholder="Buscar libro...">
 
-        <!-- Filtro por letras -->
-        <div class="filtro-letras">
-            <button class="letra" data-letra="all">Todos</button>
-            <script>
-                for(let i=65;i<=90;i++){
-                    document.write('<button class="letra" data-letra="'+String.fromCharCode(i)+'">'+String.fromCharCode(i)+'</button>');
-                }
-            </script>
+        <!-- Filtros -->
+        <div class="filtro-container">
+            <!-- Filtro por letras -->
+            <div class="filtro-letras">
+                <button class="letra" data-letra="all">Todos</button>
+                <script>
+                    for(let i=65;i<=90;i++){
+                        document.write('<button class="letra" data-letra="'+String.fromCharCode(i)+'">'+String.fromCharCode(i)+'</button>');
+                    }
+                </script>
+            </div>
+
+            <!-- Filtro de Favoritos -->
+            <div class="filtro-favoritos">
+                <button id="btnFavoritos" class="btn-filter-favoritos">⭐ Ver Favoritos</button>
+            </div>
         </div>
 
         <!-- Contenedor de cards -->
@@ -48,22 +45,8 @@
         </div>
     </section>
 
-    <!-- Modal de detalle del libro -->
-    <div id="detalleLibro" class="detalle-oculto">
-        <div class="detalle-contenido">
-            <button id="cerrarDetalle">Cerrar ✖</button>
-            <img id="detallePortada" src="" alt="Portada del libro">
-            <h3 id="detalleTitulo"></h3>
-            <p id="detalleDescripcion"></p>
-            <button id="abrirLibroDetalle">Abrir libro 📖</button>
-
-            <h4>Comentarios de usuarios</h4>
-            <div id="comentariosContainer"></div>
-            <textarea id="nuevoComentario" placeholder="Escribe tu comentario..."></textarea>
-            <button id="guardarComentario">Guardar comentario</button>
-        </div>
-    </div>
-
+    <script src="index/js/navbar.js"></script>
+    <script src="index/js/db.js"></script>
     <script src="index/js/catalogo.js"></script>
 </body>
 </html>

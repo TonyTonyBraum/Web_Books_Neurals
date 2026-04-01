@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Libro - Web Books Neural</title>
+    <link rel="stylesheet" href="index/css/navbar.css">
+    <link rel="stylesheet" href="index/css/libro-detalle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <section class="libro-detalle-section">
+        <!-- Botón Volver -->
+        <div class="volver-container">
+            <button class="btn-volver" onclick="window.location.href='catalogo.html'">← Volver al Catálogo</button>
+        </div>
+
+        <div class="libro-detalle-container">
+            <!-- Portada del libro -->
+            <div class="libro-portada">
+                <img id="detallePortada" src="" alt="Portada del libro">
+            </div>
+
+            <!-- Información del libro -->
+            <div class="libro-info">
+                <h1 id="detalleTitulo"></h1>
+                <p id="detalleDescripcion" class="libro-descripcion"></p>
+                
+                <div class="libro-acciones">
+                    <button id="abrirLibroDetalle" class="btn-primary">📖 Abrir Libro</button>
+                    <button id="agregarFavorito" class="btn-favorito">⭐ Agregar a Favoritos</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de comentarios -->
+        <div class="comentarios-section">
+            <h2>💬 Comentarios de usuarios</h2>
+            
+            <div id="comentariosContainer" class="comentarios-lista">
+                <!-- Los comentarios se cargan aquí -->
+            </div>
+
+            <div class="comentario-nuevo">
+                <textarea id="nuevoComentario" placeholder="Escribe tu comentario sobre este libro..."></textarea>
+                <button id="guardarComentario" class="btn-secondary">Guardar comentario</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="index/js/navbar.js"></script>
+    <script src="index/js/db.js"></script>
+    <script src="index/js/libro-detalle.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "libros": [
+    {
+      "id": 0,
+      "titulo": "Manual de Neurología",
+      "descripcion": "Guía para médicos y estudiantes. Este manual presenta los conceptos fundamentales de la neurología de una manera clara y accesible. Perfecto para estudiantes de medicina, enfermería y profesionales de la salud que deseen ampliar sus conocimientos sobre el sistema nervioso, enfermedades neurológicas comunes y sus tratamientos.",
+      "imagen": "index/img/B2.png",
+      "pdf": "https://drive.google.com/file/d/1UwpL4VElvt6tfB3W49PyVkIVq-ZvBAEW/preview"
+    },
+    {
+      "id": 1,
+      "titulo": "Neuroanatomía y neurofisiología",
+      "descripcion": "Neuroplasticidad y comportamiento. Un análisis profundo de cómo el cerebro se adapta y cambia en respuesta a la experiencia. Explora la relación entre la estructura cerebral y el comportamiento humano, con énfasis en la capacidad del cerebro para modificarse a sí mismo a lo largo de la vida.",
+      "imagen": "index/img/B1.png",
+      "pdf": "https://drive.google.com/file/d/10g-guk7jlfz4v1f1B9ES3kIx7q7wXXsm/preview"
+    },
+    {
+      "id": 2,
+      "titulo": "Neurofisiología Humana",
+      "descripcion": "Redes neuronales avanzadas. Estudia en profundidad las conexiones neuronales y cómo se comunican los neuroides entre sí. Ideal para investigadores, estudiantes avanzados y profesionales que deseen entender los mecanismos más complejos del funcionamiento cerebral.",
+      "imagen": "index/img/B3.png",
+      "pdf": "https://drive.google.com/file/d/1U6NAmwHF6xrTnBOAHMVPVfHGX7ivhN5e/preview"
+    }
+  ],
+  "favoritos": [],
+  "comentarios": {}
+}
