@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a0f1c;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* LOGIN */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-box {
+    background: linear-gradient(135deg, #111a33 0%, #1a2747 100%);
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid #00eaff;
+    box-shadow: 0 0 30px rgba(0, 234, 255, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h1 {
+    text-align: center;
+    color: #00ff88;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #00eaff;
+    border-radius: 8px;
+    background: #0a0f1c;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color: #00ff88;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #00eaff, #00ff88);
+    border: none;
+    border-radius: 8px;
+    color: #111a33;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 234, 255, 0.4);
+}
+
+.error {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 68, 68, 0.2);
+    border: 2px solid #ff4444;
+    border-radius: 8px;
+    color: #ff6666;
+    text-align: center;
+}
+
+/* ADMIN */
+.admin-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.header-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.header-admin h1 {
+    color: #00ff88;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.btn-logout {
+    padding: 10px 20px;
+    background: #ff4444;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background: #ff6666;
+    transform: translateY(-2px);
+}
+
+h2 {
+    color: #00eaff;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.formulario-container {
+    background: linear-gradient(135deg, #111a33 0%, #1a2747 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #00eaff;
+    margin-bottom: 40px;
+    box-shadow: 0 0 30px rgba(0, 234, 255, 0.2);
+}
+
+.form-libro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #00eaff;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #00eaff;
+    border-radius: 8px;
+    background: #0a0f1c;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00ff88;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+.form-group small {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.btn-agregar {
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #00eaff, #00ff88);
+    border: none;
+    border-radius: 8px;
+    color: #111a33;
+    font-weight: bold;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 234, 255, 0.3);
+}
+
+.btn-agregar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 234, 255, 0.5);
+}
+
+.progreso {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(0, 234, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid #00eaff;
+}
+
+.barra-progreso {
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 234, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.barra-llena {
+    height: 100%;
+    background: linear-gradient(90deg, #00eaff, #00ff88);
+    width: 0%;
+    animation: cargando 2s infinite;
+}
+
+@keyframes cargando {
+    0% { width: 0%; }
+    50% { width: 100%; }
+    100% { width: 0%; }
+}
+
+.mensaje {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mensaje.exito {
+    background: rgba(0, 255, 136, 0.2);
+    border: 2px solid #00ff88;
+    color: #00ff88;
+}
+
+.mensaje.error {
+    background: rgba(255, 68, 68, 0.2);
+    border: 2px solid #ff4444;
+    color: #ff4444;
+}
+
+.libros-container {
+    background: linear-gradient(135deg, #111a33 0%, #1a2747 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #00eaff;
+    box-shadow: 0 0 30px rgba(0, 234, 255, 0.2);
+}
+
+.lista-libros {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.libro-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #00eaff;
+}
+
+.libro-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex: 1;
+}
+
+.libro-info img {
+    width: 80px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #00eaff;
+}
+
+.libro-detalles h3 {
+    color: #00ff88;
+    margin-bottom: 5px;
+}
+
+.libro-detalles p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.btn-eliminar {
+    padding: 10px 20px;
+    background: #ff4444;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-eliminar:hover {
+    background: #ff6666;
+    transform: translateY(-2px);
+}
+
+@media(max-width: 768px) {
+    .libro-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .libro-info {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .header-admin {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-logout {
+        width: 100%;
+    }
+}
