@@ -1,84 +1,103 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    
-    // Esperar a que se carguen los datos
-    await new Promise(resolve => setTimeout(resolve, 100));
+const params = new URLSearchParams(window.location.search);
+const libroId = params.get('id');
 
-    // Obtener el ID del libro de la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const libroId = parseInt(urlParams.get('id'));
+const titulo = document.getElementById('titulo');
+const descripcion = document.getElementById('descripcion');
+const imagen = document.getElementById('imagen');
+const btnDescargar = document.getElementById('btnDescargar');
+const nombreComentario = document.getElementById('nombreComentario');
+const textoComentario = document.getElementById('textoComentario');
+const btnComentario = document.getElementById('btnComentario');
+const listaComentarios = document.getElementById('listaComentarios');
 
-    // Obtener el libro actual
-    const libroActual = db.obtenerLibro(libroId);
+let libroActual = null;
 
-    if (!libroActual) {
-        document.querySelector('.libro-detalle-section').innerHTML = '<h1 style="color: #fff; padding: 100px; text-align: center;">Libro no encontrado</h1>';
-    } else {
-        // Llenar los datos del libro
-        document.getElementById('detallePortada').src = libroActual.imagen;
-        document.getElementById('detalleTitulo').textContent = libroActual.titulo;
-        document.getElementById('detalleDescripcion').textContent = libroActual.descripcion;
-        
-        // Botón para abrir el PDF
-        document.getElementById('abrirLibroDetalle').addEventListener('click', () => {
+async function cargarLibro() {
+    try {
+        if (!libroId) {
+            document.body.innerHTML = '<h1>Libro no encontrado</h1>';
+            return;
+        }
+
+        const snapshot = await firebase.database().ref(`libros/${libroId}`).once('value');
+        libroActual = snapshot.val();
+
+        if (!libroActual) {
+            document.body.innerHTML = '<h1>Libro no encontrado</h1>';
+            return;
+        }
+
+        titulo.textContent = libroActual.titulo;
+        descripcion.textContent = libroActual.descripcion;
+        imagen.src = libroActual.imagen;
+        imagen.onerror = function() {
+            this.src = 'https://via.placeholder.com/300x400?text=Sin+Portada';
+        };
+
+        btnDescargar.onclick = () => {
             window.open(libroActual.pdf, '_blank');
+        };
+
+        cargarComentarios();
+    } catch (error) {
+        console.error('Error cargando libro:', error);
+        document.body.innerHTML = '<h1>Error al cargar el libro</h1>';
+    }
+}
+
+async function cargarComentarios() {
+    try {
+        const snapshot = await firebase.database().ref(`comentarios/${libroId}`).once('value');
+        const comentarios = snapshot.val() || {};
+
+        listaComentarios.innerHTML = '';
+
+        if (Object.keys(comentarios).length === 0) {
+            listaComentarios.innerHTML = '<p class="sin-comentarios">No hay comentarios aún. ¡Sé el primero en comentar!</p>';
+            return;
+        }
+
+        Object.values(comentarios).reverse().forEach(comentario => {
+            const div = document.createElement('div');
+            div.className = 'comentario';
+            div.innerHTML = `
+                <div class="comentario-cabecera">
+                    <strong>${comentario.nombre}</strong>
+                    <span class="fecha">${new Date(comentario.fecha).toLocaleDateString('es-ES')}</span>
+                </div>
+                <p>${comentario.texto}</p>
+            `;
+            listaComentarios.appendChild(div);
         });
-        
-        // Sistema de favoritos
-        const btnFavorito = document.getElementById('agregarFavorito');
-        const esFavorito = db.esFavorito(libroActual.id);
-        
-        // Actualizar el estado del botón
-        actualizarBtnFavorito(btnFavorito, esFavorito);
-        
-        // Agregar/Quitar de favoritos
-        btnFavorito.addEventListener('click', () => {
-            if(db.esFavorito(libroActual.id)) {
-                db.quitarFavorito(libroActual.id);
-            } else {
-                db.agregarFavorito(libroActual.id);
-            }
-            const nuevoEsFavorito = db.esFavorito(libroActual.id);
-            actualizarBtnFavorito(btnFavorito, nuevoEsFavorito);
-        });
-        
-        // Cargar comentarios desde la BD
-        const comentarios = db.obtenerComentarios(libroActual.id);
-        renderizarComentarios(comentarios);
-        
-        // Guardar nuevo comentario
-        document.getElementById('guardarComentario').addEventListener('click', () => {
-            const texto = document.getElementById('nuevoComentario').value.trim();
-            if(texto) {
-                db.agregarComentario(libroActual.id, texto);
-                const comentariosActualizados = db.obtenerComentarios(libroActual.id);
-                renderizarComentarios(comentariosActualizados);
-                document.getElementById('nuevoComentario').value = '';
-            }
-        });
+    } catch (error) {
+        console.error('Error cargando comentarios:', error);
+        listaComentarios.innerHTML = '<p class="error">Error al cargar comentarios</p>';
+    }
+}
+
+btnComentario.addEventListener('click', async () => {
+    const nombre = nombreComentario.value.trim();
+    const texto = textoComentario.value.trim();
+
+    if (!nombre || !texto) {
+        alert('Por favor completa todos los campos');
+        return;
     }
 
-    function actualizarBtnFavorito(btn, isFavorite) {
-        if(isFavorite) {
-            btn.classList.add('favorito-activo');
-            btn.textContent = '⭐ Quitar de Favoritos';
-        } else {
-            btn.classList.remove('favorito-activo');
-            btn.textContent = '⭐ Agregar a Favoritos';
-        }
-    }
+    try {
+        await firebase.database().ref(`comentarios/${libroId}`).push().set({
+            nombre: nombre,
+            texto: texto,
+            fecha: new Date().toISOString()
+        });
 
-    function renderizarComentarios(comentarios) {
-        const container = document.getElementById('comentariosContainer');
-        container.innerHTML = '';
-        
-        if(comentarios.length === 0) {
-            container.innerHTML = '<p style="color: #aaa; text-align: center; padding: 20px;">No hay comentarios aún. ¡Sé el primero en comentar!</p>';
-        } else {
-            comentarios.forEach((comentario, indice) => {
-                const p = document.createElement('p');
-                p.innerHTML = `<strong>${comentario.fecha}:</strong> ${comentario.texto}`;
-                container.appendChild(p);
-            });
-        }
+        nombreComentario.value = '';
+        textoComentario.value = '';
+        cargarComentarios();
+    } catch (error) {
+        alert('Error al enviar comentario: ' + error.message);
     }
 });
+
+// Cargar libro al abrir la página
+cargarLibro();

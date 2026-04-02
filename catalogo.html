@@ -5,56 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Web Books Neural</title>
     <link rel="stylesheet" href="index/css/navbar.css">
+    <link rel="stylesheet" href="index/css/footer.css">
     <link rel="stylesheet" href="index/css/catalogo.css">
+    <!-- Font Awesome para iconos de redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- La navbar se carga aquí dinámicamente -->
 
-    <section class="catalogo-section">
-        <h2>🔥 Catálogo de Libros</h2>
-
-        <!-- Buscador -->
-        <input type="text" id="buscador" placeholder="Buscar libro...">
-
-        <!-- Filtros -->
-        <div class="filtro-container">
-            <!-- Filtro por letras -->
-            <div class="filtro-letras">
-                <button class="letra" data-letra="all">Todos</button>
-                <script>
-                    for(let i=65;i<=90;i++){
-                        document.write('<button class="letra" data-letra="'+String.fromCharCode(i)+'">'+String.fromCharCode(i)+'</button>');
-                    }
-                </script>
+    <div class="container">
+        <h1>📖 Catálogo de Libros</h1>
+        
+        <div class="filtros">
+            <input type="text" id="busqueda" placeholder="🔍 Buscar libro..." class="input-busqueda">
+            
+            <div class="botones-filtros">
+                <button class="btn-letra btn-activo" data-letra="Todos">Todos</button>
+                <button class="btn-letra" data-letra="A">A</button>
+                <button class="btn-letra" data-letra="B">B</button>
+                <button class="btn-letra" data-letra="C">C</button>
+                <button class="btn-letra" data-letra="D">D</button>
+                <button class="btn-letra" data-letra="E">E</button>
+                <button class="btn-letra" data-letra="F">F</button>
+                <button class="btn-letra" data-letra="G">G</button>
+                <button class="btn-letra" data-letra="H">H</button>
+                <button class="btn-letra" data-letra="I">I</button>
+                <button class="btn-letra" data-letra="J">J</button>
+                <button class="btn-letra" data-letra="K">K</button>
+                <button class="btn-letra" data-letra="L">L</button>
+                <button class="btn-letra" data-letra="M">M</button>
+                <button class="btn-letra" data-letra="N">N</button>
+                <button class="btn-letra" data-letra="O">O</button>
+                <button class="btn-letra" data-letra="P">P</button>
+                <button class="btn-letra" data-letra="Q">Q</button>
+                <button class="btn-letra" data-letra="R">R</button>
+                <button class="btn-letra" data-letra="S">S</button>
+                <button class="btn-letra" data-letra="T">T</button>
+                <button class="btn-letra" data-letra="U">U</button>
+                <button class="btn-letra" data-letra="V">V</button>
+                <button class="btn-letra" data-letra="W">W</button>
+                <button class="btn-letra" data-letra="X">X</button>
+                <button class="btn-letra" data-letra="Y">Y</button>
+                <button class="btn-letra" data-letra="Z">Z</button>
             </div>
 
-            <!-- Filtro de Favoritos -->
-            <div class="filtro-favoritos">
-                <button id="btnFavoritos" class="btn-filter-favoritos">⭐ Ver Favoritos</button>
-            </div>
+            <button id="btnFavoritos" class="btn-favoritos">⭐ Ver Favoritos</button>
         </div>
 
-        <!-- Contenedor de cards -->
-        <div class="catalogo"></div>
+        <div id="listaLibros" class="grid-libros">
+            <p class="cargando">Cargando libros...</p>
+        </div>
 
-        <!-- Paginación -->
         <div class="paginacion">
-            <button id="prev">◀ Anterior</button>
-            <span id="paginaActual">1</span>
-            <button id="next">Siguiente ▶</button>
+            <button id="btnAnterior" class="btn-paginacion">← Anterior</button>
+            <span id="numeroPagina" class="numero-pagina">1</span>
+            <button id="btnSiguiente" class="btn-paginacion">Siguiente →</button>
         </div>
-    </section>
-<!-- Antes de tus scripts -->
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
-<script src="index/js/firebase-config.js"></script>
+    </div>
 
-<script src="index/js/navbar.js"></script>
-<script src="index/js/db.js"></script>
-<script src="index/js/catalogo.js"></script>
+    <!-- El footer se carga aquí dinámicamente -->
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+    <!-- Tu configuración -->
     <script src="index/js/navbar.js"></script>
-    <script src="index/js/db.js"></script>
+    <script src="index/js/footer.js"></script>
+    <script src="index/js/firebase-config.js"></script>
     <script src="index/js/catalogo.js"></script>
 </body>
 </html>

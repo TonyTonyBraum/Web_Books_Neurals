@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración - Web Books Neural</title>
+    <link rel="stylesheet" href="index/css/navbar.css">
+    <link rel="stylesheet" href="index/css/footer.css">
     <link rel="stylesheet" href="index/css/admin.css">
+    <!-- Font Awesome para iconos de redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- La navbar se carga aquí dinámicamente -->
+
     <!-- Login -->
     <div id="loginContainer" class="login-container">
         <div class="login-box">
@@ -70,13 +76,17 @@
         </div>
     </div>
 
+    <!-- El footer se carga aquí dinámicamente -->
+
     <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     
     <!-- Tu configuración -->
+    <script src="index/js/navbar.js"></script>
+    <script src="index/js/footer.js"></script>
     <script src="index/js/firebase-config.js"></script>
     <script src="index/js/admin.js"></script>
 </body>

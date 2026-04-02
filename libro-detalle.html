@@ -3,54 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del Libro - Web Books Neural</title>
+    <title>Detalles del Libro - Web Books Neural</title>
     <link rel="stylesheet" href="index/css/navbar.css">
+    <link rel="stylesheet" href="index/css/footer.css">
     <link rel="stylesheet" href="index/css/libro-detalle.css">
+    <!-- Font Awesome para iconos de redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- La navbar se carga aquí dinámicamente -->
 
-    <section class="libro-detalle-section">
-        <!-- Botón Volver -->
-        <div class="volver-container">
-            <button class="btn-volver" onclick="window.location.href='catalogo.html'">← Volver al Catálogo</button>
-        </div>
-
-        <div class="libro-detalle-container">
-            <!-- Portada del libro -->
+    <div class="container-detalle">
+        <div class="libro-detalle">
             <div class="libro-portada">
-                <img id="detallePortada" src="" alt="Portada del libro">
+                <img id="imagen" src="" alt="Portada">
             </div>
-
-            <!-- Información del libro -->
-            <div class="libro-info">
-                <h1 id="detalleTitulo"></h1>
-                <p id="detalleDescripcion" class="libro-descripcion"></p>
-                
-                <div class="libro-acciones">
-                    <button id="abrirLibroDetalle" class="btn-primary">📖 Abrir Libro</button>
-                    <button id="agregarFavorito" class="btn-favorito">⭐ Agregar a Favoritos</button>
-                </div>
+            <div class="libro-info-detalle">
+                <h1 id="titulo">Título del Libro</h1>
+                <p id="descripcion">Descripción del libro</p>
+                <button id="btnDescargar" class="btn-descargar">📥 Descargar PDF</button>
             </div>
         </div>
 
-        <!-- Sección de comentarios -->
-        <div class="comentarios-section">
-            <h2>💬 Comentarios de usuarios</h2>
+        <div class="comentarios-seccion">
+            <h2>💬 Comentarios</h2>
             
-            <div id="comentariosContainer" class="comentarios-lista">
-                <!-- Los comentarios se cargan aquí -->
+            <div class="form-comentario">
+                <input type="text" id="nombreComentario" placeholder="Tu nombre" required>
+                <textarea id="textoComentario" placeholder="Escribe tu comentario..." rows="5" required></textarea>
+                <button id="btnComentario" class="btn-comentar">Enviar Comentario</button>
             </div>
 
-            <div class="comentario-nuevo">
-                <textarea id="nuevoComentario" placeholder="Escribe tu comentario sobre este libro..."></textarea>
-                <button id="guardarComentario" class="btn-secondary">Guardar comentario</button>
+            <div id="listaComentarios" class="lista-comentarios">
+                <p class="cargando">Cargando comentarios...</p>
             </div>
         </div>
-    </section>
+    </div>
 
+    <!-- El footer se carga aquí dinámicamente -->
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+    <!-- Tu configuración -->
     <script src="index/js/navbar.js"></script>
-    <script src="index/js/db.js"></script>
+    <script src="index/js/footer.js"></script>
+    <script src="index/js/firebase-config.js"></script>
     <script src="index/js/libro-detalle.js"></script>
 </body>
 </html>

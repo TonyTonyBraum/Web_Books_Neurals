@@ -1,136 +1,130 @@
-/* NAVBAR ESTILOS */
-header {
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  background: #1a1a2e;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0f1c 0%, #1a2747 100%);
+    color: #fff;
+    min-height: 100vh;
+    padding-top: 0;
+}
+
+/* NAVBAR */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+    background: linear-gradient(90deg, #000 0%, #0a0f1c 100%);
+    padding: 20px 0;
+    border-bottom: 2px solid #00eaff;
+    box-shadow: 0 4px 15px rgba(0, 234, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.navbar .logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #00d4ff;
-  text-decoration: none;
-  transition: 0.3s ease;
-  display: block;
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.navbar .logo a:hover {
-  color: #00ff88;
-  text-shadow: 0 0 10px #00ff88;
+.logo {
+    color: #00eaff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00eaff;
+    cursor: pointer;
+}
+
+.logo:hover {
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+    transition: 0.3s;
 }
 
 .nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 30px;
 }
 
 .nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s ease;
-  position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+    position: relative;
 }
 
 .nav-links a:hover {
-  color: #00ff88;
+    background: rgba(0, 234, 255, 0.2);
+    color: #00ff88;
+    text-shadow: 0 0 5px #00ff88;
 }
 
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #00ff88;
-  transition: width 0.3s ease;
+.nav-links a.active {
+    background: rgba(0, 234, 255, 0.2);
+    color: #00ff88;
+    text-shadow: 0 0 5px #00ff88;
+    border-bottom: 3px solid #00ff88;
 }
 
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* HAMBURGER MENU */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #00d4ff;
-  border-radius: 2px;
-  transition: 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-  
-  .navbar {
-    padding: 1rem 1.5rem;
-  }
-  
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    left: -100%;
-    flex-direction: column;
-    background: #0f0f1e;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s ease;
-    gap: 0;
-    padding: 2rem 0;
-  }
-  
-  .nav-links.active {
-    left: 0;
-  }
-  
-  .nav-links li {
-    padding: 1rem 0;
-    border-bottom: 1px solid #333;
-  }
-  
-  .nav-links a::after {
-    display: none;
-  }
-  
-  .navbar .logo a {
-    font-size: 1.2rem;
-  }
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .nav-links a {
+        padding: 6px 12px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        gap: 10px;
+        padding: 0 15px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .nav-links a {
+        padding: 5px 8px;
+        font-size: 0.85rem;
+    }
+}
+html {
+    scroll-behavior: smooth;
+}
+* {
+    scroll-behavior: smooth;
 }

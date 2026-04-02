@@ -3,63 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Books Neural</title>
+    <title>Inicio - Web Books Neural</title>
     <link rel="stylesheet" href="index/css/navbar.css">
+    <link rel="stylesheet" href="index/css/footer.css">
     <link rel="stylesheet" href="index/css/index.css">
+    <!-- Font Awesome para iconos de redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- La navbar se carga aquí dinámicamente -->
 
-    <!-- HERO -->
-    <section id="inicio" class="hero">
-        <div class="overlay">
-            <h2>Explora el conocimiento del futuro</h2>
-            <p>Descubre los libros más leídos en tecnología, ciencia e innovación</p>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>📚 Bienvenido a Web Books Neural</h1>
+            <p>Descubre miles de libros y artículos científicos sobre neurología</p>
+            <a href="catalogo.html" class="btn-cta">Explorar Catálogo</a>
         </div>
     </section>
 
-    <!-- HOTLIST -->
-    <section id="catalogo" class="hotlist">
-        <h2>🔥 Libros en tendencia</h2>
-        <div class="catalogo"></div>
+    <section class="features">
+        <a href="catalogo.html" class="feature-card">
+            <div class="feature-icon">📖</div>
+            <h3>Miles de Libros</h3>
+            <p>Accede a una amplia colección de obras sobre neurología y ciencias relacionadas</p>
+        </a>
+        <a href="catalogo.html" class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Búsqueda Avanzada</h3>
+            <p>Encuentra exactamente lo que buscas con nuestro potente sistema de búsqueda</p>
+        </a>
+        <a href="catalogo.html" class="feature-card">
+            <div class="feature-icon">⭐</div>
+            <h3>Favoritos</h3>
+            <p>Guarda tus libros favoritos y accede a ellos en cualquier momento</p>
+        </a>
+        <a href="proximamente.html" class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>Comunidad</h3>
+            <p>Comparte tus opiniones y comenta con otros lectores</p>
+        </a>
     </section>
 
-    <!-- VISOR DE LIBROS -->
-    <div id="visor" class="visor oculto">
-        <button onclick="cerrarVisor()">Cerrar ✖</button>
-        <iframe id="frameLibro"></iframe>
-    </div>
+    <section class="cta-section">
+        <h2>¿Listo para explorar?</h2>
+        <p>Comienza a leer ahora y expande tus conocimientos</p>
+        <a href="catalogo.html" class="btn-cta-secondary">Ver Catálogo</a>
+    </section>
 
-    <!-- FOOTER -->
-    <footer class="footer" id="contacto">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>Web Books Neural</h3>
-                <p>Explora, aprende y conecta con el conocimiento del futuro</p>
-            </div>
-            <div class="footer-contact">
-                <h4>Contacto</h4>
-                <p>Email: contacto@neuralbooks.com</p>
-                <p>Tel: +54 123 456 7890</p>
-                <p>Dirección: Córdoba, Argentina</p>
-            </div>
-            <div class="footer-social">
-                <h4>Redes</h4>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com/tu_usuario" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/tu_usuario" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                    <a href="https://wa.me/tu_numero" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copy">
-            &copy; 2026 Web Books Neural. Todos los derechos reservados.
-        </div>
-    </footer>
+    <!-- El footer se carga aquí dinámicamente -->
 
     <script src="index/js/navbar.js"></script>
-    <script src="index/js/index.js"></script>
-
+    <script src="index/js/footer.js"></script>
 </body>
 </html>
